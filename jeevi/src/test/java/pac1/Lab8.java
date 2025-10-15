@@ -24,7 +24,7 @@ public class Lab8 {
         driver.manage().window().maximize();
         driver.get("https://tutorialsninja.com/demo/index.php");
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-        Reporter.log("Browser opened and navigated to the TutorialsNinja URL.");
+        Reporter.log("Browser open and navigate to the TutorialsNinja URL.");
     }
     @Test(priority = 1, description = "Basic flow from Lab 3")
     public void lab3BasicFlowTest() {
@@ -34,7 +34,7 @@ public class Lab8 {
         macLink.click();
         Reporter.log("Clicked on 'Mac' from the dropdown.");
         Select sortBy = new Select(driver.findElement(By.id("input-sort")));
-        // *** FIX APPLIED HERE ***
+    
         sortBy.selectByVisibleText("Name (A - Z)");
         Reporter.log("Selected 'Name (A - Z)' from the Sort By dropdown.");
         driver.findElement(By.xpath("//div[@class='product-layout product-grid col-lg-4 col-md-4 col-sm-6 col-xs-12']//button[1]")).click();
@@ -42,7 +42,7 @@ public class Lab8 {
         WebElement successAlert = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".alert-success")));
         Assert.assertTrue(successAlert.getText().contains("Success: You have added iMac to your shopping cart!"),
                 "Success message for adding iMac to cart was not displayed.");
-        Reporter.log("Verified that the product was successfully added to the cart.");
+        Reporter.log("Verify the product was successfully added to the cart.");
     }
     @Test(priority = 2, description = "Validation flow from Lab 4")
     public void lab4ValidationTest() {
